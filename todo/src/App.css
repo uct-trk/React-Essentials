@@ -1,0 +1,58 @@
+.input-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.input-wrapper-upt{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.button-wrapper{
+  width: 50%;
+}
+
+.button-wrapper-upt{
+  width: 100%;
+}
+
+.task-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.task-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.task-card{
+  border: 1px solid #646cff;
+  border-radius: 8px;
+  width: 350px;
+  padding: 20px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.button-status{
+  display: flex;
+  width: 100%;
+  gap: 15px;
+}
+
+.button-status button{
+  width: 50%;
+}
+
+.upt-wrapper{
+  width: 100%;
+}
