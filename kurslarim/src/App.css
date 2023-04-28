@@ -1,0 +1,28 @@
+.courseMainDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.desc-wrapper{
+  display: flex;
+  gap: 20px;
+}
+.card{
+  border: 1px solid violet;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.cardTitlePrice{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cardTitlePrice div{
+  display: flex;
+  align-items: center;
+}
+.cardTitle{
+  margin-right: 15px;
+}
