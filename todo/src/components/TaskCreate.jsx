@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import TasksContext from '../context/task';
 
-const TaskCreate = ({ onCreate, task, isTaskEdit, index, onUpdate }) => {
+const TaskCreate = ({ task, isTaskEdit, index, setShowEdit }) => {
 	const [title, setTitle] = useState(task ? task.title : '');
 	const [taskDesc, setTaskDesc] = useState(task ? task.taskDesc : '');
+
+	const { createTask, handleUpdate } = useContext(TasksContext);
 
 	const handleTitle = (e) => {
 		setTitle(e.target.value);
@@ -14,7 +17,12 @@ const TaskCreate = ({ onCreate, task, isTaskEdit, index, onUpdate }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		isTaskEdit ? onUpdate(task.id, title, taskDesc) : onCreate(title, taskDesc);
+		if (isTaskEdit) {
+			setShowEdit(false);
+			handleUpdate(task.id, title, taskDesc);
+		} else {
+			createTask(title, taskDesc);
+		}
 		setTitle('');
 		setTaskDesc('');
 	};

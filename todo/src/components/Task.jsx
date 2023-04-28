@@ -1,27 +1,24 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import TasksContext from '../context/task';
 import TaskCreate from './TaskCreate';
 
-const Task = ({ task, onDelete, index, handleUpdate }) => {
+const Task = ({ task, index }) => {
+	const { handleDelete, handleUpdate } = useContext(TasksContext);
 	const [showEdit, setShowEdit] = useState(false);
 
 	const handleDeleteClick = () => {
-		onDelete(task?.id);
+		handleDelete(task?.id);
 	};
 
 	const handleEditClick = () => {
 		setShowEdit(true);
 	};
 
-	const updateTask = (id, title, taskDesc) => {
-		setShowEdit(false);
-		handleUpdate(id, title, taskDesc);
-	};
-
 	return (
 		<>
 			{showEdit ? (
 				<div className="task-card">
-					<TaskCreate index={index} task={task} isTaskEdit={true} onUpdate={updateTask} />
+					<TaskCreate index={index} task={task} isTaskEdit={true} setShowEdit={setShowEdit} />
 				</div>
 			) : (
 				<div className="task-card">
