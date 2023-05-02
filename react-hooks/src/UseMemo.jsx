@@ -1,8 +1,16 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
+import NumberList from "./NumberList";
 
 export const UseMemo = () => {
   const [number, setNumber] = useState(0);
   const [dark, setDark] = useState(false);
+
+  // useCallback number değiştiğinde methodu tetikle aksi taktirde cacheyi kullan
+  const getItems = useCallback(() => {
+    return [number, number + 1, number + 2];
+  }, [number]);
+
+  // useMemo
   const doubleNumber = useMemo(() => {
     return slowFunc(number);
   }, [number]);
@@ -10,6 +18,7 @@ export const UseMemo = () => {
     backgroundColor: dark ? "#333" : "#FFF",
     color: dark ? "#FFF" : "#333",
   };
+
   return (
     <div>
       <input
@@ -21,6 +30,8 @@ export const UseMemo = () => {
         Temayı değiştir
       </button>
       <div style={theme}>{doubleNumber}</div>
+
+      <NumberList getItems={getItems} />
     </div>
   );
 
