@@ -32,10 +32,21 @@ const Courses = ({ courses, handleDelete }) => {
 		});
 	};
 
+	const getRandomCourse = () => {
+		let randomNumber = Math.round(Math.random() * courses.length - 1);
+
+		// aynı elemanın tekrardan gelmesini önlüyoruz
+		if (randomNumber === index) {
+			randomNumber = index + 1;
+		}
+		setIndex(checkIndex(randomNumber));
+	};
+
 	return (
 		<div className="courseMainDiv">
-			<div className="">
+			<div style={{ textAlign: 'center' }}>
 				<h2>Kursalar</h2>
+				<button onClick={getRandomCourse}>Rastgele Kurs Ata</button>
 			</div>
 			<div>
 				<button onClick={prevCourse}>
