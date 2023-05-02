@@ -1,4 +1,7 @@
-import { useReducer } from "react";
+import React, { useReducer } from "react";
+import Calculate from "./Calculate";
+
+export const NumberContext = React.createContext();
 
 const initialValue = 0;
 const reducer = (state, action) => {
@@ -15,13 +18,14 @@ const reducer = (state, action) => {
 };
 
 function App() {
+  // useReducer ile count örneği
   const [count, dispatch] = useReducer(reducer, initialValue);
   return (
     <>
-      <h1>{count}</h1>
-      <button onClick={() => dispatch("increase")}>Artır</button>
-      <button onClick={() => dispatch("decrease")}>Azalt</button>
-      <button onClick={() => dispatch("reset")}>Sıfırla</button>
+      {/*Context kullandık*/}
+      <NumberContext.Provider value={{ count, dispatch }}>
+        <Calculate />
+      </NumberContext.Provider>
     </>
   );
 }
