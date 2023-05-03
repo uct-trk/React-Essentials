@@ -60,6 +60,12 @@ button:focus-visible {
   color: peru;
 }
 
+.nested-nav{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

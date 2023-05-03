@@ -6,7 +6,7 @@ const History = () => {
 	return (
 		<div>
 			<h1>History</h1>
-			<nav>
+			<nav className="nested-nav">
 				<Link to={'company'}>Our Companies</Link>
 				<Link to={'team'}>Management</Link>
 			</nav>
