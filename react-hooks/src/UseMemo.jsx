@@ -1,5 +1,6 @@
 import { useMemo, useState, useCallback } from "react";
 import NumberList from "./NumberList";
+import UseRef from "./UseRef";
 
 export const UseMemo = () => {
   const [number, setNumber] = useState(0);
@@ -32,6 +33,7 @@ export const UseMemo = () => {
       <div style={theme}>{doubleNumber}</div>
 
       <NumberList getItems={getItems} />
+      <UseRef />
     </div>
   );
 
