@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import Calculate from "./Calculate";
+import Title from "./Title";
 import { UseMemo } from "./UseMemo";
 import UseTransition from "./UseTransition";
 
@@ -29,6 +30,7 @@ function App() {
         <Calculate />
         <UseMemo />
         <UseTransition />
+        <Title />
       </NumberContext.Provider>
     </>
   );
