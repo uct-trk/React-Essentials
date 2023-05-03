@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import About from './components/About';
 import Contact from './components/Contact';
+import { Footer } from './components/Footer';
 import Home from './components/Home';
 import Menu from './components/Menu';
 import Navbar from './components/Navbar';
@@ -17,6 +18,7 @@ function App() {
 				<Route path="/contact" element={<Contact />} />
 				<Route path="*" element={<WrongPage />} />
 			</Routes>
+			<Footer />
 		</div>
 	);
 }
