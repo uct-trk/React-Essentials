@@ -33,3 +33,15 @@ const UseRef = () => {
 };
 
 export default UseRef;
+
+// useRef, React'ta bir referans veya işaretçi oluşturmak için kullanılan bir hook'tur. useRef hook'u, bir değeri saklamak ve bu değere erişmek için kullanılabilir. useRef, state oluşturmak yerine daha basit bir alternatiftir ve genellikle DOM işlemleri yapmak için kullanılır.
+
+// Birkaç avantajı şunlardır:
+
+// useRef, fonksiyon bileşenlerinde de kullanılabilir.
+
+// useRef, bileşenin yeniden render edilmesi durumunda değerini korur.
+
+// useRef, bir değişkenin değerini güncellemek ve erişmek için kullanılabilir.
+
+// useRef, önceki değerini hatırlayan bir işaretçi olduğu için useEffect hook'larında da kullanılabilir.
