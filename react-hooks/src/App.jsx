@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import Calculate from "./Calculate";
 import Counter from "./Counter";
+import FormArea from "./FormArea";
 import Title from "./Title";
 import { UseMemo } from "./UseMemo";
 import UseTransition from "./UseTransition";
@@ -33,6 +34,7 @@ function App() {
         <UseTransition />
         <Title />
         <Counter />
+        <FormArea />
       </NumberContext.Provider>
     </>
   );

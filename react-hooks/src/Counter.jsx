@@ -2,6 +2,7 @@ import useCounter from "./useCounter";
 
 const Counter = () => {
   const [number, increament, decreament, reset] = useCounter();
+  console.log(useCounter());
   return (
     <div>
       <h2>Sayı - {number}</h2>
