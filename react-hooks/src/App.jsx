@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import Calculate from "./Calculate";
 import { UseMemo } from "./UseMemo";
+import UseTransition from "./UseTransition";
 
 export const NumberContext = React.createContext();
 
@@ -27,6 +28,7 @@ function App() {
       <NumberContext.Provider value={{ count, dispatch }}>
         <Calculate />
         <UseMemo />
+        <UseTransition />
       </NumberContext.Provider>
     </>
   );
