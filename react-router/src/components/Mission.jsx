@@ -1,16 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
+const Mission = () => {
 	const navigate = useNavigate();
 	const handleNavigate = () => {
-		navigate('/mission');
+		navigate(-1);
 	};
 	return (
 		<div>
-			<h1>Home</h1>
-			<button onClick={handleNavigate}>Mission</button>
+			<h1>Mission</h1>
+			<button onClick={handleNavigate}>Geriye Dön</button>
 		</div>
 	);
 };
 
-export default Home;
+export default Mission;
