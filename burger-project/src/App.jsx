@@ -3,11 +3,13 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Home from './components/Home';
 import Menu from './components/Menu';
+import Navbar from './components/Navbar';
 import WrongPage from './components/WrongPage';
 
 function App() {
 	return (
-		<div>
+		<div className="App">
+			<Navbar />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/about" element={<About />} />
