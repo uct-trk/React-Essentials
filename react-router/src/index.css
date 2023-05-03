@@ -56,7 +56,7 @@ button:focus-visible {
   gap: 20px;
 }
 
-.active{
+.nav-wrapper .active{
   color: peru;
 }
 
