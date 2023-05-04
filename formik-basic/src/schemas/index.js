@@ -9,6 +9,6 @@ export const basicSchema = yup.object().shape({
 
 export const advancedSchema = yup.object().shape({
     username: yup.string().min(3,"Kullanıcı adı minimum 3 karakter uzunluğunda olmalıdır").required("Zorunlu alan"),
-    university:yup.string().oneOf(['bagazici',"gsu","odtu","itu"],"Lütfen üniversitenizi seçin").required("Zorunlu alan"),
+    university:yup.string().oneOf(['bagazici',"gsu","odtu","itu"]).required("Lütfen üniversitenizi seçiniz"),
     isAccepted: yup.boolean().oneOf([true], "Kullanım koşullarını kabul ediniz"),
 })
