@@ -51,7 +51,15 @@ input::placeholder {
 input:focus {
   border-color: lightblue;
 }
-
+.input-error{
+  border-color: #fc8181;
+}
+.error{
+  color: #fc8181;
+  font-size: 12px;
+  text-align: left;
+  margin-top: 0;
+}
 button {
   width: 100%;
   padding: 8px 8px;
