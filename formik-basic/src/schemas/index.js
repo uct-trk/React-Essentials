@@ -6,3 +6,9 @@ export const basicSchema = yup.object().shape({
     password: yup.string().min(5, "Minimum 5 karakter giriniz").matches(passwordRules, {message: 'Lütfen en az 1 büyük harf 1 küçük harf ve 1 sayı giriniz',}).required("Zorunlu alan"),
     confirmPassword: yup.string().oneOf([yup.ref('password')], 'Şifreler eşleşmiyor').required('Tekrar şifre girmek zorunludur'),
 })
+
+export const advancedSchema = yup.object().shape({
+    username: yup.string().min(3,"Kullanıcı adı minimum 3 karakter uzunluğunda olmalıdır").required("Zorunlu alan"),
+    university:yup.string().oneOf(['bagazici',"gsu","odtu","itu"],"Lütfen üniversitenizi seçin").required("Zorunlu alan"),
+    isAccepted: yup.boolean().oneOf([true], "Kullanım koşullarını kabul ediniz"),
+})
