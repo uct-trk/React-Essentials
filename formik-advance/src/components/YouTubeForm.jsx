@@ -1,10 +1,13 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import TextError from './TextError';
 
 const initialValues = {
 	name: '',
 	email: '',
 	channel: '',
+	comments: '',
+	address: '',
 };
 
 const onSubmit = (values) => {
@@ -16,6 +19,7 @@ const validationSchema = Yup.object({
 	name: Yup.string().required('Required'),
 	email: Yup.string().email('Invalid email format').required('Required'),
 	channel: Yup.string().required('Required'),
+	address: Yup.string().required('Required'),
 });
 
 const YouTubeForm = () => {
@@ -25,17 +29,37 @@ const YouTubeForm = () => {
 				<div className="form-control">
 					<label>Name</label>
 					<Field type="text" id="name" name="name" />
-					<ErrorMessage className="error" name="name" />
+					<ErrorMessage component={TextError} className="error" name="name" />
 				</div>
 				<div className="form-control">
 					<label>E-mail</label>
 					<Field type="email" id="email" name="email" />
-					<ErrorMessage name="email" />
+					<ErrorMessage name="email">{(errorMsg) => <div className="error">{errorMsg}</div>}</ErrorMessage>
 				</div>
 				<div className="form-control">
 					<label>Channel</label>
-					<Field type="text" id="channel" name="channel" />
-					<ErrorMessage name="channel" />
+					<Field type="text" id="channel" name="channel" placeholder="Channel name" />
+					<ErrorMessage component={TextError} name="channel" />
+				</div>
+				<div className="form-control">
+					<label>Comments</label>
+					<Field as="textarea" type="text" id="comments" name="comments" />
+					<ErrorMessage component={TextError} name="comments" />
+				</div>
+				<div className="form-control">
+					<label>Address</label>
+					<Field id="address" name="address">
+						{(props) => {
+							const { field, form, meta } = props;
+							console.log(props);
+							return (
+								<div>
+									<input type="text" id="address" {...field} />
+									{meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
+								</div>
+							);
+						}}
+					</Field>
 				</div>
 				<button type="submit">Submit</button>
 			</Form>
