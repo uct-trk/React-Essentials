@@ -34,22 +34,24 @@ const YouTubeForm = () => {
 		validate: validate,
 	});
 
+	console.log(formik.touched);
+
 	return (
 		<div>
 			<form onSubmit={formik.handleSubmit}>
 				<div className="form-control">
 					<label>Name</label>
-					<input type="text" id="name" name="name" onChange={formik.handleChange} value={formik.values.name} />
+					<input type="text" id="name" name="name" onChange={formik.handleChange} value={formik.values.name} onBlur={formik.handleBlur} />
 					{formik.errors.name ? <div className="error">{formik.errors.name}</div> : null}
 				</div>
 				<div className="form-control">
 					<label>E-mail</label>
-					<input type="email" id="email" name="email" onChange={formik.handleChange} value={formik.values.email} />
+					<input type="email" id="email" name="email" onChange={formik.handleChange} value={formik.values.email} onBlur={formik.handleBlur} />
 					{formik.errors.email ? <div className="error">{formik.errors.email}</div> : null}
 				</div>
 				<div className="form-control">
 					<label>Channel</label>
-					<input type="text" id="channel" name="channel" onChange={formik.handleChange} value={formik.values.channel} />
+					<input type="text" id="channel" name="channel" onChange={formik.handleChange} value={formik.values.channel} onBlur={formik.handleBlur} />
 					{formik.errors.channel ? <div className="error">{formik.errors.channel}</div> : null}
 				</div>
 				<button type="submit">Submit</button>
@@ -59,3 +61,5 @@ const YouTubeForm = () => {
 };
 
 export default YouTubeForm;
+
+// Formik'in handleBlur fonksiyonu, form elemanlarından biri, örneğin bir input alanı, odaklanmayı kaybettiğinde (blur event) çağrılan bir fonksiyondur. formik.touched ile kontrol edilir
