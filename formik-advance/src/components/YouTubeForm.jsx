@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
 import * as Yup from 'yup';
 import TextError from './TextError';
 
@@ -13,6 +13,7 @@ const initialValues = {
 		twitter: '',
 	},
 	phoneNumbers: ['', ''],
+	phNumbers: [''],
 };
 
 const onSubmit = (values) => {
@@ -80,6 +81,39 @@ const YouTubeForm = () => {
 				<div className="form-control">
 					<label>Secondary phone</label>
 					<Field type="text" id="secondaryPhone" name="phoneNumbers[1]" />
+				</div>
+
+				<div className="form-control">
+					<label>List of phone numbers</label>
+					<FieldArray name="phNumbers">
+						{(fieldArrayProps) => {
+							console.log(fieldArrayProps);
+							const { push, remove, form } = fieldArrayProps;
+							const { values } = form;
+							const { phNumbers } = values;
+							console.log(fieldArrayProps);
+							return (
+								<div>
+									{phNumbers?.map((phNumber, index) => (
+										<div key={index}>
+											<div className="form-control">
+												<label htmlFor="">{index + 1}</label>
+												<Field type="text" name={`phNumbers[${index}]`} />
+												{phNumbers.length > 1 && (
+													<button type="button" onClick={() => remove(index)}>
+														-
+													</button>
+												)}
+												<button type="button" onClick={() => push('')}>
+													+
+												</button>
+											</div>
+										</div>
+									))}
+								</div>
+							);
+						}}
+					</FieldArray>
 				</div>
 				<button type="submit">Submit</button>
 			</Form>
