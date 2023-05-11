@@ -8,6 +8,10 @@ const initialValues = {
 	channel: '',
 	comments: '',
 	address: '',
+	social: {
+		facebook: '',
+		twitter: '',
+	},
 };
 
 const onSubmit = (values) => {
@@ -51,7 +55,6 @@ const YouTubeForm = () => {
 					<Field id="address" name="address">
 						{(props) => {
 							const { field, form, meta } = props;
-							console.log(props);
 							return (
 								<div>
 									<input type="text" id="address" {...field} />
@@ -60,6 +63,14 @@ const YouTubeForm = () => {
 							);
 						}}
 					</Field>
+				</div>
+				<div className="form-control">
+					<label>Facebook profile</label>
+					<Field type="text" id="facebook" name="social.facebook" />
+				</div>
+				<div className="form-control">
+					<label>Twitter profile</label>
+					<Field type="text" id="twitter" name="social.twitter" />
 				</div>
 				<button type="submit">Submit</button>
 			</Form>
