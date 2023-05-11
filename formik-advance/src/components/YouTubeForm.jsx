@@ -10,6 +10,14 @@
 
 // validateOnBlur özelliği, Formik kütüphanesi tarafından sağlanan bir özelliktir ve doğrulama işleminin, form alanlarından biri odak kaybettiğinde tetiklenmesine olanak tanır.Örneğin, yukarıdaki örnekte, validateOnBlur özelliği kullanılarak, form alanlarından biri odak kaybettiğinde, ilgili alanın doğrulanmasını tetikleyen bir doğrulama işlemi oluşturulur: false durumunda inputtan focus out olduğumuzda validasyonlar devreye girmez
 
+// validateField, sadece belirli bir form alanının doğrulanmasını sağlar. Bu yöntem, belirli bir form alanında gerçek zamanlı doğrulama işlemleri yapmak için kullanışlıdır
+
+// validateForm yöntemi, tüm form alanlarının doğrulanmasını sağlar. Bu yöntem, formun gönderilmeden önce tüm alanların doğru bir şekilde doldurulduğundan emin olmak için kullanılabilir
+
+// setFieldTouched, belirtilen form alanının dokunulduğunu işaretler. Bu, bir form alanının dokunulup dokunulmadığını veya odaklanıp odaklanmadığını takip etmek için kullanışlıdır
+
+// setTouched metodu ise, tüm form alanlarını dokunulmuş olarak işaretlemek için kullanılır
+
 import { Formik, Form, Field, ErrorMessage, FieldArray, FastField } from 'formik';
 import * as Yup from 'yup';
 import TextError from './TextError';
@@ -52,93 +60,120 @@ const validateComments = (value) => {
 const YouTubeForm = () => {
 	return (
 		<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={false} validateOnBlur={true}>
-			<Form>
-				<div className="form-control">
-					<label>Name</label>
-					<Field type="text" id="name" name="name" />
-					<ErrorMessage component={TextError} className="error" name="name" />
-				</div>
-				<div className="form-control">
-					<label>E-mail</label>
-					<Field type="email" id="email" name="email" />
-					<ErrorMessage name="email">{(errorMsg) => <div className="error">{errorMsg}</div>}</ErrorMessage>
-				</div>
-				<div className="form-control">
-					<label>Channel</label>
-					<Field type="text" id="channel" name="channel" placeholder="Channel name" />
-					<ErrorMessage component={TextError} name="channel" />
-				</div>
-				<div className="form-control">
-					<label>Comments</label>
-					<Field as="textarea" type="text" id="comments" name="comments" validate={validateComments} />
-					<ErrorMessage component={TextError} name="comments" />
-				</div>
-				<div className="form-control">
-					<label>Address</label>
-					<FastField id="address" name="address">
-						{(props) => {
-							console.log('sadece bu alan etkileşime girdiğinde render olacak, fastfieldin performans açısından en büyük avantajı');
-							const { field, form, meta } = props;
-							return (
-								<div>
-									<input type="text" id="address" {...field} />
-									{meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
-								</div>
-							);
-						}}
-					</FastField>
-				</div>
-				<div className="form-control">
-					<label>Facebook profile</label>
-					<Field type="text" id="facebook" name="social.facebook" />
-				</div>
-				<div className="form-control">
-					<label>Twitter profile</label>
-					<Field type="text" id="twitter" name="social.twitter" />
-				</div>
-				<div className="form-control">
-					<label>Primary phone</label>
-					<Field type="text" id="primaryPhone" name="phoneNumbers[0]" />
-				</div>
-				<div className="form-control">
-					<label>Secondary phone</label>
-					<Field type="text" id="secondaryPhone" name="phoneNumbers[1]" />
-				</div>
-
-				<div className="form-control">
-					<label>List of phone numbers</label>
-					<FieldArray name="phNumbers">
-						{(fieldArrayProps) => {
-							console.log(fieldArrayProps);
-							const { push, remove, form } = fieldArrayProps;
-							const { values } = form;
-							const { phNumbers } = values;
-							console.log(fieldArrayProps, form.errors);
-							return (
-								<div>
-									{phNumbers?.map((phNumber, index) => (
-										<div key={index}>
-											<div className="form-control">
-												<label htmlFor="">{index + 1}</label>
-												<Field type="text" name={`phNumbers[${index}]`} />
-												{phNumbers.length > 1 && (
-													<button type="button" onClick={() => remove(index)}>
-														-
-													</button>
-												)}
-												<button type="button" onClick={() => push('')}>
-													+
-												</button>
-											</div>
+			{(formik) => {
+				console.log('formik porps', formik);
+				return (
+					<Form>
+						<div className="form-control">
+							<label>Name</label>
+							<Field type="text" id="name" name="name" />
+							<ErrorMessage component={TextError} className="error" name="name" />
+						</div>
+						<div className="form-control">
+							<label>E-mail</label>
+							<Field type="email" id="email" name="email" />
+							<ErrorMessage name="email">{(errorMsg) => <div className="error">{errorMsg}</div>}</ErrorMessage>
+						</div>
+						<div className="form-control">
+							<label>Channel</label>
+							<Field type="text" id="channel" name="channel" placeholder="Channel name" />
+							<ErrorMessage component={TextError} name="channel" />
+						</div>
+						<div className="form-control">
+							<label>Comments</label>
+							<Field as="textarea" type="text" id="comments" name="comments" validate={validateComments} />
+							<ErrorMessage component={TextError} name="comments" />
+						</div>
+						<div className="form-control">
+							<label>Address</label>
+							<FastField id="address" name="address">
+								{(props) => {
+									console.log('sadece bu alan etkileşime girdiğinde render olacak, fastfieldin performans açısından en büyük avantajı');
+									const { field, form, meta } = props;
+									return (
+										<div>
+											<input type="text" id="address" {...field} />
+											{meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
 										</div>
-									))}
-								</div>
-							);
-						}}
-					</FieldArray>
-				</div>
-				<button type="submit">Submit</button>
-			</Form>
+									);
+								}}
+							</FastField>
+						</div>
+						<div className="form-control">
+							<label>Facebook profile</label>
+							<Field type="text" id="facebook" name="social.facebook" />
+						</div>
+						<div className="form-control">
+							<label>Twitter profile</label>
+							<Field type="text" id="twitter" name="social.twitter" />
+						</div>
+						<div className="form-control">
+							<label>Primary phone</label>
+							<Field type="text" id="primaryPhone" name="phoneNumbers[0]" />
+						</div>
+						<div className="form-control">
+							<label>Secondary phone</label>
+							<Field type="text" id="secondaryPhone" name="phoneNumbers[1]" />
+						</div>
+
+						<div className="form-control">
+							<label>List of phone numbers</label>
+							<FieldArray name="phNumbers">
+								{(fieldArrayProps) => {
+									console.log(fieldArrayProps);
+									const { push, remove, form } = fieldArrayProps;
+									const { values } = form;
+									const { phNumbers } = values;
+									console.log(fieldArrayProps, form.errors);
+									return (
+										<div>
+											{phNumbers?.map((phNumber, index) => (
+												<div key={index}>
+													<div className="form-control">
+														<label htmlFor="">{index + 1}</label>
+														<Field type="text" name={`phNumbers[${index}]`} />
+														{phNumbers.length > 1 && (
+															<button type="button" onClick={() => remove(index)}>
+																-
+															</button>
+														)}
+														<button type="button" onClick={() => push('')}>
+															+
+														</button>
+													</div>
+												</div>
+											))}
+										</div>
+									);
+								}}
+							</FieldArray>
+						</div>
+						<div className="form-control">
+							<button type="submit">Submit</button>
+						</div>
+						<div className="form-control">
+							<button onClick={() => formik.validateField('comments')} type="button">
+								Validate Comments
+							</button>
+						</div>
+						<div className="form-control">
+							<button onClick={() => formik.validateForm()} type="button">
+								Validate All
+							</button>
+						</div>
+						<div className="form-control">
+							<button onClick={() => formik.setFieldTouched('comments')} type="button">
+								Visit comments
+							</button>
+						</div>
+						<div className="form-control">
+							<button onClick={() => formik.setTouched({ name: true, email: true, channel: true, comments: true })} type="button">
+								Visit fields
+							</button>
+						</div>
+					</Form>
+				);
+			}}
 		</Formik>
 	);
 };
