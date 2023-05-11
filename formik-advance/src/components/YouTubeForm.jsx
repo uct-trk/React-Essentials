@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
+import { Formik, Form, Field, ErrorMessage, FieldArray, FastField } from 'formik';
 import * as Yup from 'yup';
 import TextError from './TextError';
 
@@ -54,8 +54,9 @@ const YouTubeForm = () => {
 				</div>
 				<div className="form-control">
 					<label>Address</label>
-					<Field id="address" name="address">
+					<FastField id="address" name="address">
 						{(props) => {
+							console.log('sadece bu alan etkileşime girdiğinde render olacak, fastfieldin performans açısından en büyük avantajı');
 							const { field, form, meta } = props;
 							return (
 								<div>
@@ -64,7 +65,7 @@ const YouTubeForm = () => {
 								</div>
 							);
 						}}
-					</Field>
+					</FastField>
 				</div>
 				<div className="form-control">
 					<label>Facebook profile</label>
@@ -126,3 +127,7 @@ export default YouTubeForm;
 // Formik'in handleBlur fonksiyonu, form elemanlarından biri, örneğin bir input alanı, odaklanmayı kaybettiğinde (blur event) çağrılan bir fonksiyondur. formik.touched ile kontrol edilir
 
 // getFieldProps Formik kütüphanesi tarafından sağlanan bir yardımcı fonksiyondur ve form elemanları için gerekli olan özellikleri içeren bir obje döndürür. Bu özellikler, form elemanının değerini, onChange ve onBlur olaylarını, validasyonu ve daha fazlasını içerebilir.
+
+// FieldArray Formik kütüphanesi tarafından sağlanan bir bileşendir ve dinamik form elemanları için kullanılır. FieldArray, formda birden fazla aynı tip form elemanı bulunan durumlarda kullanışlıdır. Örneğin, birden fazla telefon numarası girmek için bir form oluşturmak istediğinizi düşünün. Bu durumda, FieldArray bileşeni kullanarak form elemanlarını dinamik olarak ekleyebilirsiniz.
+
+// FastField, Formik kütüphanesi tarafından sağlanan bir bileşendir ve Field bileşenine benzer şekilde çalışır. Ancak, FastField bileşeni, Field bileşenine göre daha performanslıdır. FastField, shouldComponentUpdate özelliği kullanılarak, değişen alanların sadece yenilenmesi gereken bileşenlerin yenilenmesini sağlar.
