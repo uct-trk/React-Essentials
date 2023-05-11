@@ -30,7 +30,7 @@ const validationSchema = Yup.object({
 
 const YouTubeForm = () => {
 	return (
-		<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+		<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={false} validateOnBlur={true}>
 			<Form>
 				<div className="form-control">
 					<label>Name</label>
@@ -92,7 +92,7 @@ const YouTubeForm = () => {
 							const { push, remove, form } = fieldArrayProps;
 							const { values } = form;
 							const { phNumbers } = values;
-							console.log(fieldArrayProps);
+							console.log(fieldArrayProps, form.errors);
 							return (
 								<div>
 									{phNumbers?.map((phNumber, index) => (
@@ -131,3 +131,7 @@ export default YouTubeForm;
 // FieldArray Formik kütüphanesi tarafından sağlanan bir bileşendir ve dinamik form elemanları için kullanılır. FieldArray, formda birden fazla aynı tip form elemanı bulunan durumlarda kullanışlıdır. Örneğin, birden fazla telefon numarası girmek için bir form oluşturmak istediğinizi düşünün. Bu durumda, FieldArray bileşeni kullanarak form elemanlarını dinamik olarak ekleyebilirsiniz.
 
 // FastField, Formik kütüphanesi tarafından sağlanan bir bileşendir ve Field bileşenine benzer şekilde çalışır. Ancak, FastField bileşeni, Field bileşenine göre daha performanslıdır. FastField, shouldComponentUpdate özelliği kullanılarak, değişen alanların sadece yenilenmesi gereken bileşenlerin yenilenmesini sağlar.
+
+// validateOnChange özelliği, Formik kütüphanesi tarafından sağlanan bir özelliktir ve doğrulama işlemi sırasında değişikliklerin anlık olarak doğrulanmasına olanak tanır. Bu özellik, bir form alanı değiştirildiğinde, ilgili alanın doğrulanmasını tetikler.Örneğin, aşağıdaki örnekte, validateOnChange özelliği kullanılarak, form alanları değiştirildiğinde, ilgili alanların doğrulanmasını tetikleyen bir doğrulama işlemi oluşturulur:
+
+// validateOnBlur özelliği, Formik kütüphanesi tarafından sağlanan bir özelliktir ve doğrulama işleminin, form alanlarından biri odak kaybettiğinde tetiklenmesine olanak tanır.Örneğin, yukarıdaki örnekte, validateOnBlur özelliği kullanılarak, form alanlarından biri odak kaybettiğinde, ilgili alanın doğrulanmasını tetikleyen bir doğrulama işlemi oluşturulur: false durumunda inputtan focus out olduğumuzda validasyonlar devreye girmez
