@@ -1,3 +1,15 @@
+// Formik'in handleBlur fonksiyonu, form elemanlarından biri, örneğin bir input alanı, odaklanmayı kaybettiğinde (blur event) çağrılan bir fonksiyondur. formik.touched ile kontrol edilir
+
+// getFieldProps Formik kütüphanesi tarafından sağlanan bir yardımcı fonksiyondur ve form elemanları için gerekli olan özellikleri içeren bir obje döndürür. Bu özellikler, form elemanının değerini, onChange ve onBlur olaylarını, validasyonu ve daha fazlasını içerebilir.
+
+// FieldArray Formik kütüphanesi tarafından sağlanan bir bileşendir ve dinamik form elemanları için kullanılır. FieldArray, formda birden fazla aynı tip form elemanı bulunan durumlarda kullanışlıdır. Örneğin, birden fazla telefon numarası girmek için bir form oluşturmak istediğinizi düşünün. Bu durumda, FieldArray bileşeni kullanarak form elemanlarını dinamik olarak ekleyebilirsiniz.
+
+// FastField, Formik kütüphanesi tarafından sağlanan bir bileşendir ve Field bileşenine benzer şekilde çalışır. Ancak, FastField bileşeni, Field bileşenine göre daha performanslıdır. FastField, shouldComponentUpdate özelliği kullanılarak, değişen alanların sadece yenilenmesi gereken bileşenlerin yenilenmesini sağlar.
+
+// validateOnChange özelliği, Formik kütüphanesi tarafından sağlanan bir özelliktir ve doğrulama işlemi sırasında değişikliklerin anlık olarak doğrulanmasına olanak tanır. Bu özellik, bir form alanı değiştirildiğinde, ilgili alanın doğrulanmasını tetikler.Örneğin, aşağıdaki örnekte, validateOnChange özelliği kullanılarak, form alanları değiştirildiğinde, ilgili alanların doğrulanmasını tetikleyen bir doğrulama işlemi oluşturulur:
+
+// validateOnBlur özelliği, Formik kütüphanesi tarafından sağlanan bir özelliktir ve doğrulama işleminin, form alanlarından biri odak kaybettiğinde tetiklenmesine olanak tanır.Örneğin, yukarıdaki örnekte, validateOnBlur özelliği kullanılarak, form alanlarından biri odak kaybettiğinde, ilgili alanın doğrulanmasını tetikleyen bir doğrulama işlemi oluşturulur: false durumunda inputtan focus out olduğumuzda validasyonlar devreye girmez
+
 import { Formik, Form, Field, ErrorMessage, FieldArray, FastField } from 'formik';
 import * as Yup from 'yup';
 import TextError from './TextError';
@@ -28,6 +40,15 @@ const validationSchema = Yup.object({
 	address: Yup.string().required('Required'),
 });
 
+// validasyon hata mesajlarını ayrı olarakta yonetebiliriz.
+const validateComments = (value) => {
+	let error = {};
+	if (!value) {
+		error = 'Zorunlu';
+	}
+	return error;
+};
+
 const YouTubeForm = () => {
 	return (
 		<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={false} validateOnBlur={true}>
@@ -49,7 +70,7 @@ const YouTubeForm = () => {
 				</div>
 				<div className="form-control">
 					<label>Comments</label>
-					<Field as="textarea" type="text" id="comments" name="comments" />
+					<Field as="textarea" type="text" id="comments" name="comments" validate={validateComments} />
 					<ErrorMessage component={TextError} name="comments" />
 				</div>
 				<div className="form-control">
@@ -123,15 +144,3 @@ const YouTubeForm = () => {
 };
 
 export default YouTubeForm;
-
-// Formik'in handleBlur fonksiyonu, form elemanlarından biri, örneğin bir input alanı, odaklanmayı kaybettiğinde (blur event) çağrılan bir fonksiyondur. formik.touched ile kontrol edilir
-
-// getFieldProps Formik kütüphanesi tarafından sağlanan bir yardımcı fonksiyondur ve form elemanları için gerekli olan özellikleri içeren bir obje döndürür. Bu özellikler, form elemanının değerini, onChange ve onBlur olaylarını, validasyonu ve daha fazlasını içerebilir.
-
-// FieldArray Formik kütüphanesi tarafından sağlanan bir bileşendir ve dinamik form elemanları için kullanılır. FieldArray, formda birden fazla aynı tip form elemanı bulunan durumlarda kullanışlıdır. Örneğin, birden fazla telefon numarası girmek için bir form oluşturmak istediğinizi düşünün. Bu durumda, FieldArray bileşeni kullanarak form elemanlarını dinamik olarak ekleyebilirsiniz.
-
-// FastField, Formik kütüphanesi tarafından sağlanan bir bileşendir ve Field bileşenine benzer şekilde çalışır. Ancak, FastField bileşeni, Field bileşenine göre daha performanslıdır. FastField, shouldComponentUpdate özelliği kullanılarak, değişen alanların sadece yenilenmesi gereken bileşenlerin yenilenmesini sağlar.
-
-// validateOnChange özelliği, Formik kütüphanesi tarafından sağlanan bir özelliktir ve doğrulama işlemi sırasında değişikliklerin anlık olarak doğrulanmasına olanak tanır. Bu özellik, bir form alanı değiştirildiğinde, ilgili alanın doğrulanmasını tetikler.Örneğin, aşağıdaki örnekte, validateOnChange özelliği kullanılarak, form alanları değiştirildiğinde, ilgili alanların doğrulanmasını tetikleyen bir doğrulama işlemi oluşturulur:
-
-// validateOnBlur özelliği, Formik kütüphanesi tarafından sağlanan bir özelliktir ve doğrulama işleminin, form alanlarından biri odak kaybettiğinde tetiklenmesine olanak tanır.Örneğin, yukarıdaki örnekte, validateOnBlur özelliği kullanılarak, form alanlarından biri odak kaybettiğinde, ilgili alanın doğrulanmasını tetikleyen bir doğrulama işlemi oluşturulur: false durumunda inputtan focus out olduğumuzda validasyonlar devreye girmez
