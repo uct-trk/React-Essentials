@@ -18,6 +18,12 @@
 
 // setTouched metodu ise, tüm form alanlarını dokunulmuş olarak işaretlemek için kullanılır
 
+// isValid metodu, formun geçerli olup olmadığını hesaplar ve boolean değer olarak döndürür. Eğer tüm form alanları doğrulanmışsa (hata yoksa) true değerini döndürür, aksi takdirde false değerini döndürür.
+
+// validateOnMount prop Formik kütüphanesi tarafından sunulan bir özelliktir. Bu prop, formun sayfa yüklendiğinde doğrulanıp doğrulanmayacağını kontrol eder. Bu özellik, form sayfasının ilk yüklemede veya yenilemede doğrulanmasını sağlar.
+
+// Formik'de dirty prop'u, formun değerlerinde herhangi bir değişiklik olup olmadığını kontrol eder. Bu prop, formun ilk yüklenmesinden veya sıfırlanmasından sonra bile true veya false değerleri alabilir.
+
 import { Formik, Form, Field, ErrorMessage, FieldArray, FastField } from 'formik';
 import * as Yup from 'yup';
 import TextError from './TextError';
@@ -59,7 +65,7 @@ const validateComments = (value) => {
 
 const YouTubeForm = () => {
 	return (
-		<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={false} validateOnBlur={true}>
+		<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={false} validateOnBlur={true} validateOnMount={true}>
 			{(formik) => {
 				console.log('formik porps', formik);
 				return (
@@ -149,7 +155,9 @@ const YouTubeForm = () => {
 							</FieldArray>
 						</div>
 						<div className="form-control">
-							<button type="submit">Submit</button>
+							<button disabled={!formik.dirty && !formik.isValid} type="submit">
+								Submit
+							</button>
 						</div>
 						<div className="form-control">
 							<button onClick={() => formik.validateField('comments')} type="button">
