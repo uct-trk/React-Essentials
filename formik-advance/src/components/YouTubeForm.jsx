@@ -26,7 +26,10 @@
 
 // Formik'in isSubmitting özelliği, formun submit işlemi sırasında true değerini alır ve submit işlemi tamamlandığında false değerini alır. Bu özellik, submit işlemi sırasında formda değişiklik yapılmasını önlemek için kullanılabilir.
 
+// Formik'in enableReinitialize özelliği, formdaki initialValues değiştiğinde bile formun yeniden başlatılmasını sağlar. Bu özellik, formun yeniden başlatılmasını sağlayarak, formun güncellenmiş initialValues değerlerini yansıtmasını ve güncellenmiş değerlerle çalışmasını sağlar.
+
 import { Formik, Form, Field, ErrorMessage, FieldArray, FastField } from 'formik';
+import { useState } from 'react';
 import * as Yup from 'yup';
 import TextError from './TextError';
 
@@ -36,6 +39,20 @@ const initialValues = {
 	channel: '',
 	comments: '',
 	address: '',
+	social: {
+		facebook: '',
+		twitter: '',
+	},
+	phoneNumbers: ['', ''],
+	phNumbers: [''],
+};
+
+const savedValues = {
+	name: 'ugurcan',
+	email: 'ugur@asd.com',
+	channel: 'turkiye kanali',
+	comments: 'hello formik',
+	address: 'bursa',
 	social: {
 		facebook: '',
 		twitter: '',
@@ -68,8 +85,10 @@ const validateComments = (value) => {
 };
 
 const YouTubeForm = () => {
+	const [formValues, setFormValues] = useState(null);
+
 	return (
-		<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={false} validateOnBlur={true} validateOnMount={true}>
+		<Formik initialValues={formValues || initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={false} validateOnBlur={true} validateOnMount={true} enableReinitialize={true}>
 			{(formik) => {
 				console.log('formik porps', formik);
 				return (
@@ -166,6 +185,11 @@ const YouTubeForm = () => {
 						<div className="form-control">
 							<button disabled={!formik.isValid || formik.isSubmitting} type="submit">
 								Submit
+							</button>
+						</div>
+						<div className="form-control">
+							<button onClick={() => setFormValues(savedValues)} type="button">
+								Load saved data
 							</button>
 						</div>
 						<div className="form-control">
