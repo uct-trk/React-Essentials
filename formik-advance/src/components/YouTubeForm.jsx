@@ -24,6 +24,8 @@
 
 // Formik'de dirty prop'u, formun değerlerinde herhangi bir değişiklik olup olmadığını kontrol eder. Bu prop, formun ilk yüklenmesinden veya sıfırlanmasından sonra bile true veya false değerleri alabilir.
 
+// Formik'in isSubmitting özelliği, formun submit işlemi sırasında true değerini alır ve submit işlemi tamamlandığında false değerini alır. Bu özellik, submit işlemi sırasında formda değişiklik yapılmasını önlemek için kullanılabilir.
+
 import { Formik, Form, Field, ErrorMessage, FieldArray, FastField } from 'formik';
 import * as Yup from 'yup';
 import TextError from './TextError';
@@ -42,8 +44,10 @@ const initialValues = {
 	phNumbers: [''],
 };
 
-const onSubmit = (values) => {
-	console.group(values, 'form data');
+const onSubmit = (values, onSubmitProps) => {
+	console.log(values, 'form data');
+	console.log(onSubmitProps, 'submit props');
+	setTimeout(() => onSubmitProps.setSubmitting(false), 3000);
 };
 
 // yup validasyon şeması. Validsyon işlemlerini yönetiyoruz
@@ -87,7 +91,7 @@ const YouTubeForm = () => {
 						</div>
 						<div className="form-control">
 							<label>Comments</label>
-							<Field as="textarea" type="text" id="comments" name="comments" validate={validateComments} />
+							<Field as="textarea" type="text" id="comments" name="comments" />
 							<ErrorMessage component={TextError} name="comments" />
 						</div>
 						<div className="form-control">
@@ -99,7 +103,7 @@ const YouTubeForm = () => {
 									return (
 										<div>
 											<input type="text" id="address" {...field} />
-											{meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
+											{meta?.touched && meta?.error ? <div className="error">{meta?.error}</div> : null}
 										</div>
 									);
 								}}
@@ -130,7 +134,7 @@ const YouTubeForm = () => {
 									const { push, remove, form } = fieldArrayProps;
 									const { values } = form;
 									const { phNumbers } = values;
-									console.log(fieldArrayProps, form.errors);
+									console.log(fieldArrayProps, form?.errors);
 									return (
 										<div>
 											{phNumbers?.map((phNumber, index) => (
@@ -154,8 +158,13 @@ const YouTubeForm = () => {
 								}}
 							</FieldArray>
 						</div>
-						<div className="form-control">
+						{/* <div className="form-control">
 							<button disabled={!formik.dirty && !formik.isValid} type="submit">
+								Submit
+							</button>
+						</div> */}
+						<div className="form-control">
+							<button disabled={!formik.isValid || formik.isSubmitting} type="submit">
 								Submit
 							</button>
 						</div>
