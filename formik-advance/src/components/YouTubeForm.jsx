@@ -28,6 +28,8 @@
 
 // Formik'in enableReinitialize özelliği, formdaki initialValues değiştiğinde bile formun yeniden başlatılmasını sağlar. Bu özellik, formun yeniden başlatılmasını sağlayarak, formun güncellenmiş initialValues değerlerini yansıtmasını ve güncellenmiş değerlerle çalışmasını sağlar.
 
+// Formik'in resetForm() metodu, formdaki değerleri varsayılan initialValues değerleri ile değiştirir ve formdaki hataları temizler. Bu metot, formu sıfırlayarak başlangıç durumuna geri döndürmek için kullanılır.
+
 import { Formik, Form, Field, ErrorMessage, FieldArray, FastField } from 'formik';
 import { useState } from 'react';
 import * as Yup from 'yup';
@@ -64,7 +66,10 @@ const savedValues = {
 const onSubmit = (values, onSubmitProps) => {
 	console.log(values, 'form data');
 	console.log(onSubmitProps, 'submit props');
-	setTimeout(() => onSubmitProps.setSubmitting(false), 3000);
+	setTimeout(() => {
+		onSubmitProps.setSubmitting(false);
+		onSubmitProps.resetForm();
+	}, 3000);
 };
 
 // yup validasyon şeması. Validsyon işlemlerini yönetiyoruz
@@ -191,6 +196,9 @@ const YouTubeForm = () => {
 							<button onClick={() => setFormValues(savedValues)} type="button">
 								Load saved data
 							</button>
+						</div>
+						<div className="form-control">
+							<button type="reset">Reset</button>
 						</div>
 						<div className="form-control">
 							<button onClick={() => formik.validateField('comments')} type="button">
