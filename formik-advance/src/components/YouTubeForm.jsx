@@ -63,15 +63,6 @@ const savedValues = {
 	phNumbers: [''],
 };
 
-const onSubmit = (values, onSubmitProps) => {
-	console.log(values, 'form data');
-	console.log(onSubmitProps, 'submit props');
-	setTimeout(() => {
-		onSubmitProps.setSubmitting(false);
-		onSubmitProps.resetForm();
-	}, 3000);
-};
-
 // yup validasyon şeması. Validsyon işlemlerini yönetiyoruz
 const validationSchema = Yup.object({
 	name: Yup.string().required('Required'),
@@ -91,6 +82,16 @@ const validateComments = (value) => {
 
 const YouTubeForm = () => {
 	const [formValues, setFormValues] = useState(null);
+
+	const onSubmit = (values, onSubmitProps) => {
+		console.log(values, 'form data');
+		console.log(onSubmitProps, 'submit props');
+		setTimeout(() => {
+			onSubmitProps.setSubmitting(false);
+			onSubmitProps.resetForm();
+			setFormValues(null);
+		}, 3000);
+	};
 
 	return (
 		<Formik initialValues={formValues || initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={false} validateOnBlur={true} validateOnMount={true} enableReinitialize={true}>
