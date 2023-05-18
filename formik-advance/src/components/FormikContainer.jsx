@@ -35,7 +35,7 @@ const FormikContainer = () => {
 		textarea: Yup.string().required('Zorunlu').min(5, 'En az 5 karakterli olmalı'),
 		selectOption: Yup.string().required('Zorunlu'),
 		selectRadio: Yup.string().required('Zorunlu'),
-		selectCheckbox: Yup.array().min(1, 'En az 1 tane seçilmelidir'),
+		selectCheckbox: Yup.array().required('Zorunlu').min(1, 'En az 1 tane seçilmelidir'),
 	});
 
 	const onSubmit = (values, onSubmitProps) => {
