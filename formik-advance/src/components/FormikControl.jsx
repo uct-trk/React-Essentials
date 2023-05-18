@@ -1,3 +1,4 @@
+import Checkbox from './Checkbox';
 import Input from './Input';
 import Radio from './Radio';
 import Select from './Select';
@@ -15,6 +16,7 @@ const FormikControl = (props) => {
 		case 'radio':
 			return <Radio {...rest} />;
 		case 'checkbox':
+			return <Checkbox {...rest} />;
 		case 'datepicker':
 		default:
 			return null;

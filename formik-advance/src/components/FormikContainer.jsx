@@ -16,11 +16,18 @@ const FormikContainer = () => {
 		{ key: 'Radio 3', value: '3' },
 	];
 
+	const checkboxArray = [
+		{ key: 'Check 1', value: '1' },
+		{ key: 'Check 2', value: '2' },
+		{ key: 'Check 3', value: '3' },
+	];
+
 	const initialValues = {
 		email: '',
 		textarea: '',
 		selectOption: '',
 		selectRadio: '',
+		selectCheckbox: [],
 	};
 
 	const validationSchema = Yup.object({
@@ -28,9 +35,11 @@ const FormikContainer = () => {
 		textarea: Yup.string().required('Zorunlu').min(5, 'En az 5 karakterli olmalı'),
 		selectOption: Yup.string().required('Zorunlu'),
 		selectRadio: Yup.string().required('Zorunlu'),
+		selectCheckbox: Yup.array().min(1, 'En az 1 tane seçilmelidir'),
 	});
 
 	const onSubmit = (values, onSubmitProps) => {
+		console.log(onSubmitProps);
 		console.log(values, 'Form data');
 		setTimeout(() => {
 			onSubmitProps.setSubmitting(false);
@@ -45,6 +54,7 @@ const FormikContainer = () => {
 					<FormikControl control="textarea" type="textarea" label="Description" name="textarea" />
 					<FormikControl control="select" type="select" label="Select a Topic" name="selectOption" options={dropdownOptions} />
 					<FormikControl control="radio" type="radio" label="Select a Radio" name="selectRadio" options={radioArray} />
+					<FormikControl control="checkbox" type="checkbox" label="Select a Checkbox" name="selectCheckbox" options={checkboxArray} />
 					<button disabled={!formik.isValid || formik.isSubmitting} type="submit">
 						Submit
 					</button>
