@@ -1,9 +1,9 @@
-import RegisterForm from './components/RegisterForm';
+import EnrollmentForm from './components/EnrollmentForm';
 
 function App() {
 	return (
 		<div className="App">
-			<RegisterForm />
+			<EnrollmentForm />
 		</div>
 	);
 }
