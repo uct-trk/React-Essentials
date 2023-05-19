@@ -28,6 +28,7 @@ const FormikContainer = () => {
 		selectOption: '',
 		selectRadio: '',
 		selectCheckbox: [],
+		birthDate: null,
 	};
 
 	const validationSchema = Yup.object({
@@ -36,6 +37,7 @@ const FormikContainer = () => {
 		selectOption: Yup.string().required('Zorunlu'),
 		selectRadio: Yup.string().required('Zorunlu'),
 		selectCheckbox: Yup.array().required('Zorunlu').min(1, 'En az 1 tane seçilmelidir'),
+		birthDate: Yup.date().required('Zorunlu'),
 	});
 
 	const onSubmit = (values, onSubmitProps) => {
@@ -55,6 +57,7 @@ const FormikContainer = () => {
 					<FormikControl control="select" type="select" label="Select a Topic" name="selectOption" options={dropdownOptions} />
 					<FormikControl control="radio" type="radio" label="Select a Radio" name="selectRadio" options={radioArray} />
 					<FormikControl control="checkbox" type="checkbox" label="Select a Checkbox" name="selectCheckbox" options={checkboxArray} />
+					<FormikControl control="datepicker" type="datepicker" label="Birthday Date" name="birthDate" />
 					<button disabled={!formik.isValid || formik.isSubmitting} type="submit">
 						Submit
 					</button>
