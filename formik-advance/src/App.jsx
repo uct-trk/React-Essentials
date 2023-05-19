@@ -1,9 +1,9 @@
-import FormikContainer from './components/FormikContainer';
+import RegisterForm from './components/RegisterForm';
 
 function App() {
 	return (
 		<div className="App">
-			<FormikContainer />
+			<RegisterForm />
 		</div>
 	);
 }
