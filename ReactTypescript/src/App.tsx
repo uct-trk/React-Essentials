@@ -1,6 +1,7 @@
 import Home from './components/Home';
 import Instructor from './components/Instructor';
 import InstructorList from './components/InstructorList';
+import Request from './components/Request';
 
 function App() {
 	const instructor = {
@@ -31,6 +32,7 @@ function App() {
 			<Home name="Ugurcan" courseNumber={15} isBest={true} />
 			<Instructor instructor={instructor} />
 			<InstructorList instructorList={instructorList} />
+			<Request status="loading" />
 		</div>
 	);
 }
