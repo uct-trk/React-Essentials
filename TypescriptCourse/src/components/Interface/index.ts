@@ -36,3 +36,17 @@ console.log(kisi.ad); // "John"
 
 // Fonksiyonu çağırma
 selamla('Alice'); // "Merhaba, Alice"
+
+// --- Fonksiyonlarda interface tanımlama
+
+// fonksiyonlarda interface oluşturabiliriz
+// Bu şekilde, interface kullanarak fonksiyonların tipini belirleyebilir ve tip uyumunu sağlayabilirsiniz.
+interface StringFormat {
+	(str: string, isUpper: boolean): string;
+}
+
+const stringFormat: StringFormat = (isim, isUpper) => {
+	return isUpper ? isim.toLocaleUpperCase() : isim.toLocaleLowerCase();
+};
+
+stringFormat('Ugur', false);
