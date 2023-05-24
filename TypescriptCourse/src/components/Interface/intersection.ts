@@ -10,13 +10,13 @@ interface Identity {
 	id: number;
 }
 
-interface Concat {
+interface Contact {
 	email: string;
 	phone: string;
 }
 
 // Intersection, farklı türleri birleştirmek ve yeni türler oluşturmak için güçlü bir araçtır. Bu şekilde, farklı türleri tek bir türde birleştirebilir ve daha spesifik veya genel türler oluşturabilirsiniz.
-type Employeee = Identity & Concat;
+type Employeee = Identity & Contact;
 
 const employeee: Employeee = {
 	name: 'Uğurcan',
