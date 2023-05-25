@@ -1,9 +1,4 @@
-type instructorProps = {
-	instructor: {
-		firstName: string;
-		lastName: string;
-	};
-};
+import { instructorProps } from './types';
 
 const Instructor = ({ instructor }: instructorProps) => {
 	return (

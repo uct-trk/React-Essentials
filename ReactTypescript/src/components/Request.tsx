@@ -1,6 +1,4 @@
-type RequestProps = {
-	status: 'loading' | 'success' | 'error';
-};
+import { RequestProps } from './types';
 
 const Request = ({ status }: RequestProps) => {
 	let message = '';

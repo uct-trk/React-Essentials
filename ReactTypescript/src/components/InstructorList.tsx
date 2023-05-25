@@ -1,14 +1,6 @@
-type InstructorList = {
-	instructorList: Array<InstructorObje>;
-};
+import { InstructorListType } from './types';
 
-type InstructorObje = {
-	id: number;
-	firstName: string;
-	lastName: string;
-};
-
-const InstructorList = ({ instructorList }: InstructorList) => {
+export const InstructorList = ({ instructorList }: InstructorListType) => {
 	return (
 		<div>
 			{instructorList?.map((i) => {
