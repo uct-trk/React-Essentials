@@ -1,3 +1,4 @@
+import EventActions from './components/EventActions';
 import Home from './components/Home';
 import Instructor from './components/Instructor';
 import InstructorList from './components/InstructorList';
@@ -33,6 +34,7 @@ function App() {
 			<Instructor instructor={instructor} />
 			<InstructorList instructorList={instructorList} />
 			<Request status="loading" />
+			<EventActions />
 		</div>
 	);
 }
