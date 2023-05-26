@@ -7,11 +7,12 @@ import CheckboxMUI from './components/CheckboxMUI';
 import AutoCompleteMUI from './components/AutoCompleteMUI';
 import BoxMui from './components/BoxMui';
 import StackMUI from './components/StackMUI';
+import GridMUI from './components/GridMUI';
 
 function App() {
 	return (
 		<div>
-			<StackMUI />
+			<GridMUI />
 		</div>
 	);
 }
