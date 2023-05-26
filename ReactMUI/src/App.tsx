@@ -8,11 +8,12 @@ import AutoCompleteMUI from './components/AutoCompleteMUI';
 import BoxMui from './components/BoxMui';
 import StackMUI from './components/StackMUI';
 import GridMUI from './components/GridMUI';
+import CardMUI from './components/CardMUI';
 
 function App() {
 	return (
 		<div>
-			<GridMUI />
+			<CardMUI />
 		</div>
 	);
 }
