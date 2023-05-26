@@ -12,6 +12,7 @@ const RadioGroupMUI = () => {
 				<FormControlLabel label="3000$" value="3000" color="secondary" control={<Radio color="secondary" />} />
 				<FormControlLabel label="4000$" value="4000" color="secondary" control={<Radio color="warning" />} />
 			</RadioGroup>
+			<FormHelperText>Seçiminizi yapınız</FormHelperText>
 		</FormControl>
 	);
 };
