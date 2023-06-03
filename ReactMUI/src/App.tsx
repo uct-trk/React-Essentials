@@ -15,11 +15,12 @@ import ImageListMUI from './components/ImageListMUI';
 import PaperMUI from './components/PaperMUI';
 import LinkMUI from './components/LinkMUI';
 import BreadcrumbMUI from './components/BreadcrumbMUI';
+import DrawerMUI from './components/DrawerMUI';
 
 function App() {
 	return (
 		<div>
-			<BreadcrumbMUI />
+			<DrawerMUI />
 		</div>
 	);
 }
