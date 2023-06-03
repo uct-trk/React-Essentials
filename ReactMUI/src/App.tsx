@@ -12,11 +12,12 @@ import CardMUI from './components/CardMUI';
 import AccordionMUI from './components/AccordionMUI';
 import AppBarMUI from './components/AppBarMUI';
 import ImageListMUI from './components/ImageListMUI';
+import PaperMUI from './components/PaperMUI';
 
 function App() {
 	return (
 		<div>
-			<ImageListMUI />
+			<PaperMUI />
 		</div>
 	);
 }
