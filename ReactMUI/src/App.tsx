@@ -17,11 +17,12 @@ import LinkMUI from './components/LinkMUI';
 import BreadcrumbMUI from './components/BreadcrumbMUI';
 import DrawerMUI from './components/DrawerMUI';
 import BadgeMUI from './components/BadgeMUI';
+import SpeedDialMUI from './components/SpeedDialMUI';
 
 function App() {
 	return (
 		<div>
-			<BadgeMUI />
+			<SpeedDialMUI />
 		</div>
 	);
 }
