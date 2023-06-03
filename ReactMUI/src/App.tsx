@@ -16,11 +16,12 @@ import PaperMUI from './components/PaperMUI';
 import LinkMUI from './components/LinkMUI';
 import BreadcrumbMUI from './components/BreadcrumbMUI';
 import DrawerMUI from './components/DrawerMUI';
+import BadgeMUI from './components/BadgeMUI';
 
 function App() {
 	return (
 		<div>
-			<DrawerMUI />
+			<BadgeMUI />
 		</div>
 	);
 }
