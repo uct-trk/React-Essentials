@@ -14,11 +14,12 @@ import AppBarMUI from './components/AppBarMUI';
 import ImageListMUI from './components/ImageListMUI';
 import PaperMUI from './components/PaperMUI';
 import LinkMUI from './components/LinkMUI';
+import BreadcrumbMUI from './components/BreadcrumbMUI';
 
 function App() {
 	return (
 		<div>
-			<LinkMUI />
+			<BreadcrumbMUI />
 		</div>
 	);
 }
