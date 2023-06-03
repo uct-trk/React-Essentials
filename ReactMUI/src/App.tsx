@@ -10,11 +10,12 @@ import StackMUI from './components/StackMUI';
 import GridMUI from './components/GridMUI';
 import CardMUI from './components/CardMUI';
 import AccordionMUI from './components/AccordionMUI';
+import AppBarMUI from './components/AppBarMUI';
 
 function App() {
 	return (
 		<div>
-			<AccordionMUI />
+			<AppBarMUI />
 		</div>
 	);
 }
