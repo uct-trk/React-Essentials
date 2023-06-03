@@ -38,7 +38,7 @@ export default function BreadcrumbMUI() {
 			</div>
 
 			<Stack mt={5}>
-				<Breadcrumbs separator="›" aria-label="breadcrumb">
+				<Breadcrumbs maxItems={2} separator="›" aria-label="breadcrumb">
 					{breadcrumbs}
 				</Breadcrumbs>
 				<Breadcrumbs separator="-" aria-label="breadcrumb">
