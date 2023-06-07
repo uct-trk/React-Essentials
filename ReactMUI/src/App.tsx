@@ -26,11 +26,12 @@ import AlertMUI from './components/AlertMUI';
 import DialogMUI from './components/DialogMUI';
 import SnackbarMUI from './components/SnackbarMUI';
 import SpinnerMUI from './components/SpinnerMUI';
+import SkeletonMUI from './components/SkeletonMUI';
 
 function App() {
 	return (
 		<div>
-			<SpinnerMUI />
+			<SkeletonMUI />
 		</div>
 	);
 }
