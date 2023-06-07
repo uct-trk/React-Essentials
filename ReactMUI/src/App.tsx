@@ -25,11 +25,12 @@ import TooltlpMUI from './components/TooltlpMUI';
 import AlertMUI from './components/AlertMUI';
 import DialogMUI from './components/DialogMUI';
 import SnackbarMUI from './components/SnackbarMUI';
+import SpinnerMUI from './components/SpinnerMUI';
 
 function App() {
 	return (
 		<div>
-			<SnackbarMUI />
+			<SpinnerMUI />
 		</div>
 	);
 }
