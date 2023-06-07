@@ -24,11 +24,12 @@ import ListMUI from './components/ListMUI';
 import TooltlpMUI from './components/TooltlpMUI';
 import AlertMUI from './components/AlertMUI';
 import DialogMUI from './components/DialogMUI';
+import SnackbarMUI from './components/SnackbarMUI';
 
 function App() {
 	return (
 		<div>
-			<DialogMUI />
+			<SnackbarMUI />
 		</div>
 	);
 }
