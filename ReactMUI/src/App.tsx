@@ -22,11 +22,12 @@ import ButtonNavigationMUI from './components/ButtonNavigationMUI';
 import AvatarMUI from './components/AvatarMUI';
 import ListMUI from './components/ListMUI';
 import TooltlpMUI from './components/TooltlpMUI';
+import AlertMUI from './components/AlertMUI';
 
 function App() {
 	return (
 		<div>
-			<TooltlpMUI />
+			<AlertMUI />
 		</div>
 	);
 }
