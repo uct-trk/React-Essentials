@@ -19,11 +19,12 @@ import DrawerMUI from './components/DrawerMUI';
 import BadgeMUI from './components/BadgeMUI';
 import SpeedDialMUI from './components/SpeedDialMUI';
 import ButtonNavigationMUI from './components/ButtonNavigationMUI';
+import AvatarMUI from './components/AvatarMUI';
 
 function App() {
 	return (
 		<div>
-			<ButtonNavigationMUI />
+			<AvatarMUI />
 		</div>
 	);
 }
