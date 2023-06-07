@@ -27,11 +27,12 @@ import DialogMUI from './components/DialogMUI';
 import SnackbarMUI from './components/SnackbarMUI';
 import SpinnerMUI from './components/SpinnerMUI';
 import SkeletonMUI from './components/SkeletonMUI';
+import TableMUI from './components/TableMUI';
 
 function App() {
 	return (
 		<div>
-			<SkeletonMUI />
+			<TableMUI />
 		</div>
 	);
 }
