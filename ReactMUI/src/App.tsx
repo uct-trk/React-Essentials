@@ -21,11 +21,12 @@ import SpeedDialMUI from './components/SpeedDialMUI';
 import ButtonNavigationMUI from './components/ButtonNavigationMUI';
 import AvatarMUI from './components/AvatarMUI';
 import ListMUI from './components/ListMUI';
+import TooltlpMUI from './components/TooltlpMUI';
 
 function App() {
 	return (
 		<div>
-			<ListMUI />
+			<TooltlpMUI />
 		</div>
 	);
 }
