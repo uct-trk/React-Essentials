@@ -30,11 +30,12 @@ import SkeletonMUI from './components/SkeletonMUI';
 import TableMUI from './components/TableMUI';
 import LoadingButtonMUI from './components/LoadingButtonMUI';
 import TabsMUI from './components/TabsMUI';
+import TimeLineMUI from './components/TimeLineMUI';
 
 function App() {
 	return (
 		<div>
-			<TabsMUI />
+			<TimeLineMUI />
 		</div>
 	);
 }
