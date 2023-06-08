@@ -29,11 +29,12 @@ import SpinnerMUI from './components/SpinnerMUI';
 import SkeletonMUI from './components/SkeletonMUI';
 import TableMUI from './components/TableMUI';
 import LoadingButtonMUI from './components/LoadingButtonMUI';
+import TabsMUI from './components/TabsMUI';
 
 function App() {
 	return (
 		<div>
-			<LoadingButtonMUI />
+			<TabsMUI />
 		</div>
 	);
 }
