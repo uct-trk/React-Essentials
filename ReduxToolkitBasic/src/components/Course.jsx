@@ -11,7 +11,7 @@ const Course = ({ id, title, price, img, quantity }) => {
 					{title}
 				</Typography>
 				<Typography variant="body2" color="text.secondary">
-					{price}
+					{price} TL
 				</Typography>
 			</CardContent>
 			<CardActions sx={{ display: 'flex', gap: '10px' }}>
