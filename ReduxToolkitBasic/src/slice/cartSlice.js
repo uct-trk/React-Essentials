@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import courseItems from '../courseItems'
 // Redux Toolkit'teki createSlice fonksiyonu, Redux mağazasında kullanılacak bir dilim (slice) oluşturmak için kullanılan bir yardımcı işlevidir. Bir dilim, bir parça durum ve bu duruma ait eylem yaratıcıları (action creators) ve azaltıcıları (reducers) içerir.
 
 // createSlice fonksiyonu, bir dilim oluşturmak için gerekli olan aşağıdaki öğeleri otomatik olarak oluşturur:
@@ -10,7 +10,7 @@ import { createSlice } from '@reduxjs/toolkit';
 // Azaltıcılar (reducers): Eylemleri dinleyen ve durumu güncelleyen işlevler.
 
 const initialState = {
-    cartItems: [],
+    cartItems: courseItems,
     quantity:0,
     total:0
   };
