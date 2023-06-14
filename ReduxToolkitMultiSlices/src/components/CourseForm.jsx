@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { changeDesc, changeName, changePrice } from '../store/slices/formSlice';
+import { addCourse } from '../store/slices/courseSlice';
 
 const CourseForm = () => {
 	const { name, description, cost } = useSelector((state) => state.form);
@@ -16,6 +17,16 @@ const CourseForm = () => {
 	const handlePriceChange = (e) => {
 		let val = e.target.value;
 		dispatch(changePrice(val));
+	};
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		dispatch(
+			addCourse({
+				name,
+				description,
+				cost,
+			}),
+		);
 	};
 	return (
 		<div className="courseForm panel">
@@ -35,7 +46,9 @@ const CourseForm = () => {
 						<input className="input is-expanded" type="number" value={cost} onChange={handlePriceChange} />
 					</div>
 					<div className="field">
-						<button className="button is-primary">Kaydet</button>
+						<button className="button is-primary" onClick={handleSubmit}>
+							Kaydet
+						</button>
 					</div>
 				</div>
 			</form>
