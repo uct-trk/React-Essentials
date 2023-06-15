@@ -15,11 +15,20 @@ const courseSlice = createSlice({
                 id: nanoid(),
             })
         },
+        updateCourse(state, action) {
+            const { id, name, description, cost } = action.payload;
+            const course = state.data.find((course) => course.id === id);
+            if (course) {
+              course.name = name;
+              course.description = description;
+              course.cost = cost;
+            }
+          },
         deleteCourse(state,action){
           state.data = state.data.filter((course) => course.id !== action.payload)
         }
     }
 })
 
-export const {addCourse,deleteCourse} = courseSlice.actions
+export const {addCourse,updateCourse,deleteCourse} = courseSlice.actions
 export default courseSlice.reducer
