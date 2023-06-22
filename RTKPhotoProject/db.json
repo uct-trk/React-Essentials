@@ -16,5 +16,12 @@
       "name": "Percy93",
       "id": 5
     }
+  ],
+  "albums": [
+    {
+      "userId":1,
+      "title":"Bursa",
+      "id":15
+    }
   ]
 }
