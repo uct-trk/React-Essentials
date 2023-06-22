@@ -9,9 +9,9 @@ const pause = (duration) => {
 }
 
 // createApi fonksiyonu ile bir API servisi tanımlanmaktadır.
-export const albumsApi = createApi({
+export const photoApi = createApi({
     // reducerPath özelliği, oluşturulan reducer'ın Redux store içindeki yolunu belirtmektedir.
-    reducerPath:'albums',
+    reducerPath:'photo',
     // baseQuery özelliği, temel istek yapılandırmasını sağlamak için fetchBaseQuery fonksiyonunu kullanmaktadır.
     baseQuery:fetchBaseQuery({
         baseUrl:'http://localhost:3000',
@@ -24,13 +24,13 @@ export const albumsApi = createApi({
     endpoints(builder){
         return {
             // builder.query fonksiyonu ile bir sorgu tanımlanmaktadır. 
-            fetchAlbums:builder.query({
-                query: (user) => {
+            fetchPhoto:builder.query({
+                query: (album) => {
                     return {
-                        url: '/albums',
+                        url: '/photo',
                         method:'GET',
                         params: {
-                            userId:user.id
+                            albumId:album.id
                         }
                     }
                 },
@@ -38,46 +38,48 @@ export const albumsApi = createApi({
                 // 1. paramete en pointten gelen veriler
                 // 2. parametre hata yonetimi yapmamızı sağlar
                 // 3. parametre gonderilen obje
-               providesTags:(result,error,user) => {
-                    const tags = result.map((album) => {
-                        console.log(album)
-                        return {type:'Album', id:album.id}
+               providesTags:(result,error,album) => {
+                    const tags = result?.map((photo) => {
+                      
+                        return {type:'Photo', id:photo.id}
                     })
-                    tags.push({type:'UsersAlbum', id:user.id})
+                    tags.push({type:'AlbumPhoto', id:album.id})
                     return tags
                }
             }),
             // kullanıcı ekleme
-            addAlbum:builder.mutation({
-                query: (user) => {
+            addPhoto:builder.mutation({
+                query: (album) => {
                     return {
-                        url: '/albums',
+                        url: '/photo',
                         method:'POST',
                         body: {
-                            userId: user.id,
-                            name:faker.commerce.productName()
+                            albumId: album.id,
+                            url:faker.image.urlPicsumPhotos(),
+                            name: faker.name.firstName()
+                           
                         }
                     }
                 },
                 // Invalidate Tag (Geçerlilik Etiketi):
                 // "Invalidate tag" (geçerlilik etiketi), önbelleğe alınmış verinin geçerliliğini sonlandırmak ve güncellemek için kullanılan bir işaretleyicidir. Redux Toolkit Query, bir API isteği yapıldığında veya veri değiştirildiğinde ilgili önbellek etiketlerini geçersiz kılar ve bu etiketlerle ilişkili veriyi yeniden alır.
-               invalidatesTags: (result,error,user) => {
-                    return [{type: 'UsersAlbum',id:user.id}]
+               invalidatesTags: (result,error,album) => {
+                    return [{type: 'AlbumPhoto',id:album.id}]
                }
             }),
-            removeAlbum:builder.mutation({
-                query: (album) => {
+            removePhoto:builder.mutation({
+                query: (photo) => {
                     return {
-                        url: `/albums/${album.id}`,
+                        url: `/photo/${photo.id}`,
                         method:`DELETE`,
                     }
                 },
-                invalidatesTags: (result,error,album) => {
-                    return [{type: 'Album',id:album.id}]
+                invalidatesTags: (result,error,photo) => {
+                    return [{type: 'Photo',id:photo.id}]
                }
             })
         }
     }
 })
 
-export const {useFetchAlbumsQuery, useAddAlbumMutation, useRemoveAlbumMutation} = albumsApi
+export const {useFetchPhotoQuery, useAddPhotoMutation, useRemovePhotoMutation} = photoApi

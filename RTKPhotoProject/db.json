@@ -20,78 +20,13 @@
   "albums": [
     {
       "userId": 1,
-      "name": "Licensed Rubber Car",
-      "id": 16
-    },
-    {
-      "userId": 1,
-      "name": "Oriental Steel Chair",
-      "id": 20
-    },
-    {
-      "userId": 1,
-      "name": "Intelligent Metal Hat",
-      "id": 22
-    },
-    {
-      "userId": 1,
-      "name": "Oriental Rubber Sausages",
-      "id": 23
-    },
-    {
-      "userId": 1,
-      "name": "Ergonomic Steel Soap",
-      "id": 27
-    },
-    {
-      "userId": 1,
-      "name": "Modern Plastic Fish",
-      "id": 28
-    },
-    {
-      "userId": 1,
       "name": "Rustic Frozen Table",
       "id": 30
-    },
-    {
-      "userId": 1,
-      "name": "Rustic Plastic Chicken",
-      "id": 31
-    },
-    {
-      "userId": 1,
-      "name": "Modern Steel Fish",
-      "id": 32
     },
     {
       "userId": 6,
       "name": "Generic Wooden Shoes",
       "id": 35
-    },
-    {
-      "userId": 6,
-      "name": "Unbranded Wooden Hat",
-      "id": 36
-    },
-    {
-      "userId": 6,
-      "name": "Licensed Plastic Salad",
-      "id": 37
-    },
-    {
-      "userId": 1,
-      "name": "Rustic Steel Keyboard",
-      "id": 38
-    },
-    {
-      "userId": 5,
-      "name": "Bespoke Granite Keyboard",
-      "id": 39
-    },
-    {
-      "userId": 5,
-      "name": "Modern Cotton Towels",
-      "id": 40
     },
     {
       "userId": 7,
@@ -102,6 +37,183 @@
       "userId": 7,
       "name": "Unbranded Frozen Table",
       "id": 42
+    },
+    {
+      "userId": 7,
+      "name": "Generic Cotton Tuna",
+      "id": 43
+    },
+    {
+      "userId": 1,
+      "name": "Modern Steel Ball",
+      "id": 45
+    },
+    {
+      "userId": 6,
+      "name": "Handcrafted Frozen Mouse",
+      "id": 46
+    },
+    {
+      "userId": 5,
+      "name": "Intelligent Rubber Pants",
+      "id": 47
+    },
+    {
+      "userId": 5,
+      "name": "Bespoke Metal Chicken",
+      "id": 48
+    }
+  ],
+  "photo": [
+    {
+      "albumId": 30,
+      "url": "https://picsum.photos/seed/hzvBP8/640/480",
+      "name": "Ida",
+      "id": 1
+    },
+    {
+      "albumId": 45,
+      "url": "https://picsum.photos/seed/i8iI49oTIm/640/480",
+      "name": "Dandre",
+      "id": 2
+    },
+    {
+      "albumId": 30,
+      "url": "https://picsum.photos/seed/obnOMIN/640/480",
+      "name": "Julia",
+      "id": 3
+    },
+    {
+      "albumId": 30,
+      "url": "https://picsum.photos/seed/RKUtOFPQ/640/480",
+      "name": "Jaylon",
+      "id": 4
+    },
+    {
+      "albumId": 30,
+      "url": "https://picsum.photos/seed/OD1hzrBhjf/640/480",
+      "name": "Selmer",
+      "id": 5
+    },
+    {
+      "albumId": 30,
+      "url": "https://picsum.photos/seed/KJiLiyz/640/480",
+      "name": "Ollie",
+      "id": 6
+    },
+    {
+      "albumId": 30,
+      "url": "https://picsum.photos/seed/mG62VWTF/640/480",
+      "name": "Jimmy",
+      "id": 7
+    },
+    {
+      "albumId": 45,
+      "url": "https://picsum.photos/seed/RWf0z2/640/480",
+      "name": "Minnie",
+      "id": 8
+    },
+    {
+      "albumId": 45,
+      "url": "https://picsum.photos/seed/mXFyZ3QOf/640/480",
+      "name": "Elmer",
+      "id": 9
+    },
+    {
+      "albumId": 45,
+      "url": "https://picsum.photos/seed/s3VkSi/640/480",
+      "name": "Lottie",
+      "id": 10
+    },
+    {
+      "albumId": 45,
+      "url": "https://picsum.photos/seed/nghG9gX/640/480",
+      "name": "Vernon",
+      "id": 11
+    },
+    {
+      "albumId": 35,
+      "url": "https://picsum.photos/seed/FXoiXMiF/640/480",
+      "name": "Benny",
+      "id": 16
+    },
+    {
+      "albumId": 35,
+      "url": "https://picsum.photos/seed/d54SD5/640/480",
+      "name": "Elmore",
+      "id": 17
+    },
+    {
+      "albumId": 35,
+      "url": "https://picsum.photos/seed/MYDDVtI2u/640/480",
+      "name": "Pattie",
+      "id": 18
+    },
+    {
+      "albumId": 35,
+      "url": "https://picsum.photos/seed/gZ3mj/640/480",
+      "name": "Breana",
+      "id": 19
+    },
+    {
+      "albumId": 35,
+      "url": "https://picsum.photos/seed/bCx8T6P71R/640/480",
+      "name": "Anderson",
+      "id": 20
+    },
+    {
+      "albumId": 47,
+      "url": "https://picsum.photos/seed/EBY4a9/640/480",
+      "name": "Neha",
+      "id": 21
+    },
+    {
+      "albumId": 47,
+      "url": "https://picsum.photos/seed/UXNxWvFZGU/640/480",
+      "name": "Trevor",
+      "id": 22
+    },
+    {
+      "albumId": 47,
+      "url": "https://picsum.photos/seed/SWVftLPQgn/640/480",
+      "name": "Dante",
+      "id": 23
+    },
+    {
+      "albumId": 47,
+      "url": "https://picsum.photos/seed/C23BL1s/640/480",
+      "name": "Aurore",
+      "id": 24
+    },
+    {
+      "albumId": 48,
+      "url": "https://picsum.photos/seed/U0bfgbwLKs/640/480",
+      "name": "Osbaldo",
+      "id": 25
+    },
+    {
+      "albumId": 48,
+      "url": "https://picsum.photos/seed/CEVAB8/640/480",
+      "name": "Leora",
+      "id": 26
+    },
+    {
+      "albumId": 41,
+      "url": "https://picsum.photos/seed/VoQjiOq/640/480",
+      "name": "Sadye",
+      "id": 27
+    },
+    {
+      "albumId": 42,
+      "url": "https://picsum.photos/seed/EnFJyg/640/480",
+      "name": "Abigale",
+      "id": 28
+    },
+    {
+      "albumId": 43,
+      "url": "https://picsum.photos/seed/uFcyD/640/480",
+      "name": "Shany",
+      "id": 29
     }
   ]
 }

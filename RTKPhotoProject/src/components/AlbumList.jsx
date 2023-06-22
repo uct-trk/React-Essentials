@@ -27,7 +27,7 @@ const AlbumList = ({ user }) => {
 		<>
 			<Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'} margin={1}>
 				<Typography component={'h1'} fontSize={16}>
-					{user.name} Albümü
+					{user.name} Albümleri
 				</Typography>
 				<Button color="info" variant="outlined" onClick={handleAddAlbum} disabled={result.isLoading}>
 					{result.isLoading ? <CircularProgress style={{ width: '25px', height: '25px' }} /> : <span>Album Ekle</span>}
