@@ -9,13 +9,13 @@ const ExpandeblePanel = ({ children, header }) => {
 	const handleClick = () => {
 		setExpanded(!expanded);
 	};
-	console.log(expanded);
+
 	return (
-		<Stack padding={3} sx={{ backgroundColor: 'lightgrey', borderRadius: '30px' }}>
+		<Stack padding={3} sx={{ backgroundColor: '#f7f9fa', borderRadius: '30px' }}>
 			<Stack direction={'row'} justifyContent={'space-between'}>
 				<Stack>{header}</Stack>
 				<Stack onClick={handleClick} sx={{ cursor: 'pointer' }}>
-					{expanded ? <KeyboardArrowDownIcon /> : <KeyboardArrowLeftIcon />}
+					{expanded ? <KeyboardArrowDownIcon color="primary" /> : <KeyboardArrowLeftIcon color="primary" />}
 				</Stack>
 			</Stack>
 			{expanded && children}

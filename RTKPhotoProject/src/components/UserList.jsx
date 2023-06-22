@@ -28,8 +28,8 @@ const UserList = () => {
 		});
 	}
 
-	const handleUserAdd = () => {
-		addUser().unwrap();
+	const handleUserAdd = async () => {
+		return await addUser().unwrap();
 	};
 
 	return (
