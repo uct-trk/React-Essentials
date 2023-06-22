@@ -5,57 +5,28 @@
       "name": "Ugurcan"
     },
     {
-      "name": "Chasity_Feest",
-      "id": 3
-    },
-    {
-      "name": "Maverick_Schulist2",
-      "id": 4
-    },
-    {
       "name": "Elinore48",
       "id": 5
     },
     {
       "name": "Mckenna_Fahey45",
       "id": 6
+    },
+    {
+      "name": "Ulises2",
+      "id": 7
     }
   ],
   "albums": [
-    {
-      "userId": 1,
-      "name": "Bursa",
-      "id": 15
-    },
     {
       "userId": 1,
       "name": "Licensed Rubber Car",
       "id": 16
     },
     {
-      "userId": 3,
-      "name": "Intelligent Soft Bike",
-      "id": 17
-    },
-    {
-      "userId": 3,
-      "name": "Oriental Bronze Salad",
-      "id": 18
-    },
-    {
-      "userId": 3,
-      "name": "Refined Bronze Ball",
-      "id": 19
-    },
-    {
       "userId": 1,
       "name": "Oriental Steel Chair",
       "id": 20
-    },
-    {
-      "userId": 1,
-      "name": "Unbranded Cotton Gloves",
-      "id": 21
     },
     {
       "userId": 1,
@@ -68,21 +39,6 @@
       "id": 23
     },
     {
-      "userId": 3,
-      "name": "Tasty Fresh Keyboard",
-      "id": 24
-    },
-    {
-      "userId": 3,
-      "name": "Incredible Concrete Car",
-      "id": 25
-    },
-    {
-      "userId": 3,
-      "name": "Small Concrete Gloves",
-      "id": 26
-    },
-    {
       "userId": 1,
       "name": "Ergonomic Steel Soap",
       "id": 27
@@ -91,11 +47,6 @@
       "userId": 1,
       "name": "Modern Plastic Fish",
       "id": 28
-    },
-    {
-      "userId": 4,
-      "name": "Modern Fresh Bacon",
-      "id": 29
     },
     {
       "userId": 1,
@@ -113,16 +64,6 @@
       "id": 32
     },
     {
-      "userId": 3,
-      "name": "Incredible Fresh Bike",
-      "id": 33
-    },
-    {
-      "userId": 3,
-      "name": "Oriental Soft Chair",
-      "id": 34
-    },
-    {
       "userId": 6,
       "name": "Generic Wooden Shoes",
       "id": 35
@@ -136,6 +77,31 @@
       "userId": 6,
       "name": "Licensed Plastic Salad",
       "id": 37
+    },
+    {
+      "userId": 1,
+      "name": "Rustic Steel Keyboard",
+      "id": 38
+    },
+    {
+      "userId": 5,
+      "name": "Bespoke Granite Keyboard",
+      "id": 39
+    },
+    {
+      "userId": 5,
+      "name": "Modern Cotton Towels",
+      "id": 40
+    },
+    {
+      "userId": 7,
+      "name": "Elegant Concrete Shirt",
+      "id": 41
+    },
+    {
+      "userId": 7,
+      "name": "Unbranded Frozen Table",
+      "id": 42
     }
   ]
 }
